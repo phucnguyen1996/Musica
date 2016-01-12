@@ -145,7 +145,6 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                                                     echo '<li><a href="#">Credit: '.$row['Credit'].'</a></li>';
                                                 }
                                             ?>
-                                            <li><a href="credit.php">Recharger credit</a></li>
                                             <li><a href="cart.php">Mon panier</a></li>
                                             <li><a href="achat.php">Mes achats</a></li>
                                             <li><a href="logout.php">Déconnexion</a></li>
