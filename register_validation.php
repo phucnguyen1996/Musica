@@ -45,7 +45,7 @@ if(!isset($_POST['codePays']) || empty($_POST['codePays'])) {
 }
 
 if($nomErr=='' && $prenomErr=='' && $loginErr=='' && $passwdErr=='' && $paysErr=='') {
-    $query = "INSERT INTO Abonné (Nom_Abonné, Prénom_Abonné, Login, Password, Adresse, Ville, Code_Postal, Code_Pays, Email)
+    $query = "INSERT INTO Abonné (Nom_Abonné, Prénom_Abonné, Login, Password, Adresse, Ville, Code_Postal, Code_Pays, Email, Credit)
               VALUES('". $_POST['nom'] . "', '"
                       . $_POST['prenom'] . "', '"
                       . $_POST['login'] . "', '"
@@ -54,10 +54,11 @@ if($nomErr=='' && $prenomErr=='' && $loginErr=='' && $passwdErr=='' && $paysErr=
                       . $_POST['ville'] . "', '"
                       . $_POST['codePostal'] . "', '"
                       . $_POST['codePays'] . "', '"
-                      . $_POST['email'] . "')" ; 
+                      . $_POST['email'] . "', 
+                      '100')" ; 
     try {
         $pdo->query($query) ;
-        $URL = 'index.php';
+        $URL = 'login.php';
         header ("Location: $URL");
         echo "SUCCES";
     }
