@@ -48,7 +48,7 @@
                     foreach ($pdo->query($query) as $row) {
                         echo '<div class="item item-type-move">'.
                                 $row['Titre_Album'].
-                             '  <a class="item-hover" href="playlist.php?code_album='.$row['Code_Album'].'" target="_blank">' .
+                             '  <a class="item-hover" href="playlist.php?code_album='.$row['Code_Album'].'">' .
                              '      <div class="item-info">'.
                              '          <div class="headline">'.
                                         $row['Titre_Album'].

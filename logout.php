@@ -1,4 +1,7 @@
 <?php
+    
+    session_start();
+
     if (isset($_SERVER['HTTP_COOKIE']))
     {
         $cookies = explode(';', $_SERVER['HTTP_COOKIE']);
@@ -10,8 +13,7 @@
             setcookie($name, '', time()-700000, '/');
         }
     }
-    session_start();
-
+    
     if(isset($_SESSION['cart'])) {
         unset($_SESSION['cart']);
     }

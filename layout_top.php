@@ -34,10 +34,8 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 <script src="js/menu_jquery.js"></script>
 <!-- Latest compiled and minified CSS -->
 <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
-
 <!-- jQuery library -->
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
-
 <!-- Latest compiled JavaScript -->
 <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>       
 </head>
@@ -64,13 +62,11 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                                         <ul class="dropdown-menu">
                                             <?php
                                                 include 'config.php';
-
                                                 $query = 'SELECT DISTINCT Genre.Code_Genre, Genre.Libellé_Abrégé 
                                                           FROM Genre
                                                           INNER JOIN Album
                                                           ON Genre.Code_Genre=Album.Code_Genre
                                                           ORDER BY Genre.Libellé_Abrégé';
-
                                                 foreach ($pdo->query($query) as $row) {
                                                     echo '<li><a href="albums.php?code_genre='.$row['Code_Genre'].'">'.$row[utf8_decode('Libellé_Abrégé')].'</a></li>';   
                                                 }
@@ -89,13 +85,11 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                                         <ul class="dropdown-menu">
                                             <?php
                                                 include 'config.php';
-
                                                 $query = 'SELECT DISTINCT Pays.Nom_Pays, Pays.Code_Pays
                                                           FROM Pays 
                                                           INNER JOIN Musicien 
                                                           ON Pays.Code_Pays = Musicien.Code_Pays
                                                           ORDER BY Pays.Nom_Pays';
-
                                                 foreach ($pdo->query($query) as $row) {
                                                     echo '<li><a href="musiciens.php?code_pays='.$row['Code_Pays'].'">'.$row[utf8_decode('Nom_Pays')].'</a></li>';   
                                                 }
@@ -114,14 +108,12 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                                         <ul class="dropdown-menu">
                                             <?php
                                                 include_once 'config.php';
-
                                                 $query = 'SELECT DISTINCT Instrument.Code_Instrument, Instrument.Nom_Instrument 
                                                             FROM (((Orchestres INNER JOIN Direction ON Orchestres.Code_Orchestre = Direction.Code_Orchestre)
                                         INNER JOIN Musicien ON Musicien.Code_Musicien = Direction.Code_Musicien) 
                                         INNER JOIN Interpréter ON Musicien.Code_Musicien = Interpréter.Code_Musicien) 
                                         INNER JOIN Instrument ON Instrument.Code_Instrument = Interpréter.Code_Instrument 
                                                             ORDER BY Instrument.Nom_Instrument';
-
                                                 foreach ($pdo->query($query) as $row) {
                                                     echo '<li><a href="orchestres.php?code_instrument='.$row['Code_Instrument'].'">'.$row['Nom_Instrument'].'</a></li>';   
                                                 }
@@ -153,6 +145,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                                                     echo '<li><a href="#">Credit: '.$row['Credit'].'</a></li>';
                                                 }
                                             ?>
+                                            <li><a href="credit.php">Recharger credit</a></li>
                                             <li><a href="cart.php">Mon panier</a></li>
                                             <li><a href="achat.php">Mes achats</a></li>
                                             <li><a href="logout.php">Déconnexion</a></li>
@@ -165,4 +158,3 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                     </div>
                 </div>
             </nav>
-            

@@ -28,8 +28,7 @@ if(isset($_SESSION['cart']) && !empty($_SESSION['cart']))
         }
     }
     
-    
-    if(!empty($credit) && $credit>=$prixTotal) {
+    if($credit>=$prixTotal) {
         foreach($listItems as $item) {
             $query="INSERT INTO Achat(Code_Enregistrement, Code_Abonné) 
                     VALUES ('".$item."' , '".$code_abonne."')";
@@ -42,27 +41,24 @@ if(isset($_SESSION['cart']) && !empty($_SESSION['cart']))
                 $queryCredit="UPDATE Abonné SET Credit='".$newCredit."' WHERE Code_Abonné='".$code_abonne."'"; 
                 
                 try {              
-                    $pdo->query($queryCredit);    
+                    $pdo->query($queryCredit);             
+                                
+                    unset($_SESSION['cart']);
+                    if(isset($_SESSION['cart'])) {
+                        unset($_SESSION['cart']);
+                    }
+                    header('Location: achat.php');
                 }
                 catch(PDOException $errMsg) 
                 {
                     echo 'Error: ' . $errMsg->getMessage();
-                }
-                                
-                unset($_SESSION['cart']);
-                if(isset($_SESSION['cart'])) {
-                    unset($_SESSION['cart']);
-                }
-                header('Location: achat.php');       
+                }       
             } 
             catch(PDOException $errMsg) 
             {
                 echo 'Error: ' . $errMsg->getMessage();
             }       
         }
-    }
-    else {
-        header('Location: credit.php');    
     }
     
 }

@@ -29,7 +29,6 @@
                         '       <tr>'.          
                         '           <th>Numero</th>'.
                         '           <th>Titre</th>'.
-                        '           <th></th>'.
                         '           <th>Prix</th>'.
                         '           <th>Delete</th>'.
                         '       </tr>'.
@@ -47,7 +46,6 @@
                         echo '<tr>'.
                              '  <td>'.$count.'</td>'.
                              '  <td>'.$row['Titre'].'</td>'.
-                             '  <td>'.'</td>'.
                              '  <td>'.$row['Prix'].
                              '  <td>'.
                              '      <form method="post" action="cart_remove.php">'.
