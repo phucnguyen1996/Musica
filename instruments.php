@@ -85,7 +85,7 @@
 
                 $count = 0;
 
-                $queryCount = "SELECT (SELECT COUNT(*) FROM Instrument )" ;
+                $queryCount = "SELECT (SELECT COUNT(*) FROM Instrument ".$condition.")" ;
 
                 include_once('pagination.php');
 
