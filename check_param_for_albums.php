@@ -118,6 +118,11 @@
     else 
     {
         $pagination=TRUE;
+        if($key!='') {
+            $condition = "WHERE Album.Code_Album LIKE'%".$key."%'  
+                            OR Album.Titre_Album LIKE'%".$key."%' 
+                            OR Année_Album LIKE'%".$key."%'";
+        }
         /*
         $query="SELECT DISTINCT Titre_Album, Code_Album        
                 FROM Album
